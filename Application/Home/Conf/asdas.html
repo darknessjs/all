@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="/css/new/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/new/gov.css">
+    <script type="text/javascript"	src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript"	src="/js/all.js"></script>
+</head>
+<body>
+<div class="topnavi">
+
+</div>
+<div class="allcontent center w980">
+
+    <div class="row">
+        <div class="nav w100p">
+            <ul>
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/gonggao/list_1.html">通知公告</a></li>
+                <li><a href="/lzzx/list_1.html">廉政资讯</a></li>
+                <li><a href="/ljzl/list_1.html">作风监督</a></li>
+                <li><a href="/ajcb/list_1.html">纪律审查</a></li>
+                <li><a href="/zcfg/list_1.html">政策法规</a></li>
+                <li class="nav_last"><a>廉政文化</a>
+                    <ul>
+                        <li><a href="/front/magazineList.jhtml">廉政期刊</a></li>
+                        <li><a href="/front/magazineList.jhtml">廉政宣传</a></li>
+                        <li><a href="/xcjy/tpl/list_1.html">廉政视频</a></li>
+                        <li><a href="/xcjy/lzwh/list_1.html">廉政漫画</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script language="javascript">
+        $(".nav").children("ul").children("li:last-child").hover(function(e){
+            $(this).children("ul").show()
+        },function(e){
+            $(this).children("ul").hide()
+        })
+    </script>
+    <div class="row">
+        <div class="slideimage">
+            <@article topid=120 num=4;articles>
+            <#list articles as a>
+                <a data-title="<#if a.fristTitle?length lt 21>
+										  ${a.fristTitle}
+										<#else> 
+										  ${a.fristTitle[0..20]}... 
+										</#if>"
+                   href="${a.publishUrl}"><img src="${a.image2}"></a>
+            </#list>
+        </@article>
+        <div class="slideimagetitle">
+            标题1
+        </div>
+        <ul>
+        </ul>
+    </div>
+    <script language="JavaScript">
+        $(".slideimage").children("ul").html("");
+        var slidelength=$(".slideimage").children("a").length;
+        for(var i=0;i<slidelength;i++){
+            $(".slideimage").children("ul").append("<li></li>");
+        }
+        function changeslideimage(indexnum){
+            $(".slideimage").children("a").children("img").stop().fadeOut("fast");
+            $(".slideimage").children("ul").children("li").css("color","white");
+            $(".slideimage").children("ul").children("li").css("background-position","0px 0px");
+            $(".slideimage").children("ul").children("li:eq("+indexnum+")").css("color","black");
+            $(".slideimage").children("ul").children("li:eq("+indexnum+")").css("background-position","-10px 0px");
+            $(".slideimage").children("a:eq("+indexnum+")").children("img").stop().fadeIn("fast");
+            $(".slideimagetitle").html($(".slideimage").children("a:eq("+indexnum+")").attr("data-title"));
+        }
+        function autoplay(){
+            $(".slideimage").children("a").each(function(index,e){
+                if($(this).children("img").css("display")!="none"){
+                    changeslideimage(((index-(-1)==slidelength)?0:index-(-1)));
+                    return false;
+                }
+            })
+        }
+        changeslideimage(0);
+        window.setInterval("autoplay()",3000);
+
+        $(".slideimage").on("click","li",function(e){
+            changeslideimage($(this).index());
+        });
+    </script>
+    <div class="slideimage_toolbox">
+        <div class="search_box">
+            <form action="/front/searchArticle.jhtml" method="post">
+                <input type="text" name="articleName" placeholder="输入搜索关键词">
+                <input id="searchSubmit" type="submit" value="查询">
+            </form>
+        </div>
+        <div class="right_box">
+            <div class="right_title">
+                组织机构
+            </div>
+            <div class="right_tool">
+                <ul>
+                    <li><a href="/lsyg/index.html"><img src="/images/new/history.png"> 历史沿革</a></li>
+                    <li><a href="/ldjs/index.html"><img src="/images/new/leader.png"> 领导机构</a></li>
+                    <li><a href="/zzjglb/list_1.html"><img src="/images/new/organization.png"> 组织机构</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right_box">
+            <div class="right_title">
+                专题栏目
+            </div>
+            <div class="right_tool">
+                <ul>
+                    <li><a href="/xsjw/list_1.html">学 思 践 悟</a></li>
+                    <li><a href="/syss/list_1.html">三严三实"宣传教育</a></li>
+                    <li><a href="/sxgc/list_1.html">学习贯彻两项法规</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div id="notice" class="card">
+        <div class="cardtitle">
+            <span class="cardtitleicon"></span>
+            <span class="cardtitlename">通知公告</span>
+            <span class="cardtitlemore"><a href="/gonggao/list_1.html">更多>>></a></span>
+        </div>
+        <div class="cardcontent">
+            <div class="notice_content">
+                <ul>
+                    <@article topid=20 num=14;articles>
+                    <#list articles as a>
+                        <li><a href="${a.publishUrl}"  title="${a.fristTitle}">
+                            <#if a.fristTitle?length lt 12>
+                                ${a.fristTitle}
+                                <#else>
+                                    ${a.fristTitle[0..11]}...
+                            </#if></a>
+                            <span style="float:right">${a.inputTime?string('yyyy-MM-dd')}</span>
+                        </li>
+                    </#list>
+                </@article>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="notice_right">
+        <div class="right_box">
+            <div class="right_title">
+                交流互动
+            </div>
+            <div class="right_tool">
+                <ul>
+                    <li><a href="/sjyx/mailList.jhtml"><img src="/images/new/post.png"> 书记信箱</a></li>
+                    <li><a><img src="/images/new/research.png">社会调查</a></li>
+                    <li><a><img src="/images/new/report.png">举报指南</a></li>
+                    <li><a href="http://61.186.207.201/talking.htm?usa=ycq"><img src="/images/new/reportpost.png">我要举报</a></li>
+                    <li><a><img src="/images/new/reportway.png">举报方式</a></li>
+                </ul>
+            </div>
+            <div class="right_foot">
+                <div>电话举报：023-49814991</div>
+                <div>来访请到：重庆市永川区人民大道191号</div>
+                <div>来信请寄：重庆市永川区纪委信访室</div>
+                <div>邮　　编：402160</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="independent_information card">
+        <div class="cardtitle">
+            <span class="cardtitleicon"></span>
+            <span class="cardtitlename">廉政资讯</span>
+            <span class="cardtitlemore"><a href="/lzzx/list_1.html">更多>>></a></span>
+        </div>
+        <div class="cardcontent">
+            <@article topid=119 num=1;articles>
+            <#list articles as a>
+                <#if a.image2?length gt 0>
+                    <div class="independent_information_left">
+                        <img src="${a.image2}">
+                        <div class="independent_information_left_title">
+                            <a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                <#if a.fristTitle?length lt 21>
+                                    ${a.fristTitle}
+                                    <#else>
+                                        ${a.fristTitle[0..20]}...
+                                </#if>
+                            </a>
+                        </div>
+                    </div>
+                    <#else>
+                        <div class="discipline_review_left">
+                            <div class="discipline_review_left_title">
+                                <a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                    <#if a.fristTitle?length lt 19>
+                                        ${a.fristTitle}
+                                        <#else>
+                                            ${a.fristTitle[0..18]}...
+                                    </#if>
+                                </a>
+                            </div>
+                            <div class="discipline_review_left_content">
+                                <#if a.content?length lt 401>
+                                    ${a.content}
+                                    <#else>
+                                        ${a.content[0..400]}...
+                                </#if>
+                            </div>
+                        </div>
+                </#if>
+            </#list>
+        </@article>
+        <div class="independent_information_right">
+            <ul>
+                <#assign count=0>
+                    <@article topid=119 num=9;articles>
+                    <#list articles as a>
+                        <#if count gt 0>
+                            <li><a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                <#if a.fristTitle?length lt 21>
+                                    ${a.fristTitle}
+                                    <#else>
+                                        ${a.fristTitle[0..20]}...
+                                </#if></a>
+                                <span style="float:right">${a.inputTime?string('yyyy-MM-dd')}</span>
+                            </li>
+                        </#if>
+                        <#assign count=1>
+                    </#list>
+                </@article>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="row">
+    <div class="independent_information card">
+        <div class="cardtitle">
+            <span class="cardtitleicon"></span>
+            <span class="cardtitlename">作风监督</span>
+            <span class="cardtitlemore"><a href="/ljzl/list_1.html">更多>>></a></span>
+        </div>
+
+        <div class="cardcontent">
+            <@article topid=6 num=1;articles>
+            <#list articles as a>
+                <#if a.image2?length gt 0>
+                    <div class="independent_information_left">
+                        <img src="${a.image2}">
+                        <div class="independent_information_left_title">
+                            <a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                <#if a.fristTitle?length lt 21>
+                                    ${a.fristTitle}
+                                    <#else>
+                                        ${a.fristTitle[0..20]}...
+                                </#if>
+                            </a>
+                        </div>
+                    </div>
+                    <#else>
+                        <div class="discipline_review_left">
+                            <div class="discipline_review_left_title">
+                                <a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                    <#if a.fristTitle?length lt 19>
+                                        ${a.fristTitle}
+                                        <#else>
+                                            ${a.fristTitle[0..18]}...
+                                    </#if>
+                                </a>
+                            </div>
+                            <div class="discipline_review_left_content">
+                                <#if a.content?length lt 401>
+                                    ${a.content}
+                                    <#else>
+                                        ${a.content[0..400]}...
+                                </#if>
+                            </div>
+                        </div>
+                </#if>
+            </#list>
+        </@article>
+        <div class="independent_information_right">
+            <ul>
+                <#assign count=0>
+                    <@article topid=6 num=9;articles>
+                    <#list articles as a>
+                        <#if count gt 0>
+                            <li><a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                <#if a.fristTitle?length lt 21>
+                                    ${a.fristTitle}
+                                    <#else>
+                                        ${a.fristTitle[0..20]}...
+                                </#if></a>
+                                <span style="float:right">${a.inputTime?string('yyyy-MM-dd')}</span>
+                            </li>
+                        </#if>
+                        <#assign count=1>
+                    </#list>
+                </@article>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="discipline_review card">
+        <div class="cardtitle">
+            <span class="cardtitleicon"></span>
+            <span class="cardtitlename">纪律审查</span>
+            <span class="cardtitlemore"><a href="/ajcb/list_1.html">更多>>></a></span>
+        </div>
+        <div class="cardcontent">
+            <@article topid=11 num=1;articles>
+            <#list articles as a>
+                <#if a.image2?length gt 0>
+                    <div class="independent_information_left">
+                        <img src="${a.image2}">
+                        <div class="independent_information_left_title">
+                            <a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                <#if a.fristTitle?length lt 21>
+                                    ${a.fristTitle}
+                                    <#else>
+                                        ${a.fristTitle[0..20]}...
+                                </#if>
+                            </a>
+                        </div>
+                    </div>
+                    <#else>
+                        <div class="discipline_review_left">
+                            <div class="discipline_review_left_title">
+                                <a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                    <#if a.fristTitle?length lt 19>
+                                        ${a.fristTitle}
+                                        <#else>
+                                            ${a.fristTitle[0..18]}...
+                                    </#if>
+                                </a>
+                            </div>
+                            <div class="discipline_review_left_content">
+                                <#if a.content?length lt 401>
+                                    ${a.content}
+                                    <#else>
+                                        ${a.content[0..400]}...
+                                </#if>
+                            </div>
+                        </div>
+                </#if>
+            </#list>
+        </@article>
+
+        <div class="independent_information_right">
+            <ul>
+                <#assign count=0>
+                    <@article topid=11 num=9;articles>
+                    <#list articles as a>
+                        <#if count gt 0>
+                            <li><a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                <#if a.fristTitle?length lt 21>
+                                    ${a.fristTitle}
+                                    <#else>
+                                        ${a.fristTitle[0..20]}...
+                                </#if></a>
+                                <span style="float:right">${a.inputTime?string('yyyy-MM-dd')}</span>
+                            </li>
+                        </#if>
+                        <#assign count=1>
+                    </#list>
+                </@article>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="regulations card">
+        <div class="cardtitle">
+            <span class="cardtitleicon"></span>
+            <span class="cardtitlename">政策法规</span>
+            <span class="cardtitlemore"><a href="/zcfg/list_1.html">更多>>></a></span>
+        </div>
+        <div class="cardcontent">
+            <@article topid=12 num=1;articles>
+            <#list articles as a>
+                <#if a.image2?length gt 0>
+                    <div class="independent_information_left">
+                        <img src="${a.image2}">
+                        <div class="independent_information_left_title">
+                            <a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                <#if a.fristTitle?length lt 21>
+                                    ${a.fristTitle}
+                                    <#else>
+                                        ${a.fristTitle[0..20]}...
+                                </#if>
+                            </a>
+                        </div>
+                    </div>
+                    <#else>
+                        <div class="discipline_review_left">
+                            <div class="discipline_review_left_title">
+                                <a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                    <#if a.fristTitle?length lt 19>
+                                        ${a.fristTitle}
+                                        <#else>
+                                            ${a.fristTitle[0..18]}...
+                                    </#if>
+                                </a>
+                            </div>
+                            <div class="discipline_review_left_content">
+                                <#if a.content?length lt 401>
+                                    ${a.content}
+                                    <#else>
+                                        ${a.content[0..400]}...
+                                </#if>
+                            </div>
+                        </div>
+                </#if>
+            </#list>
+        </@article>
+
+        <div class="independent_information_right">
+            <ul>
+                <#assign count=0>
+                    <@article topid=12 num=9;articles>
+                    <#list articles as a>
+                        <#if count gt 0>
+                            <li><a href="${a.publishUrl}"  title="${a.fristTitle}">
+                                <#if a.fristTitle?length lt 21>
+                                    ${a.fristTitle}
+                                    <#else>
+                                        ${a.fristTitle[0..20]}...
+                                </#if></a>
+                                <span style="float:right">${a.inputTime?string('yyyy-MM-dd')}</span>
+                            </li>
+                        </#if>
+                        <#assign count=1>
+                    </#list>
+                </@article>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <div class="independent_culture card">
+        <div class="cardtitle">
+            <span class="cardtitleicon"></span>
+            <span class="cardtitlename">廉政文化</span>
+        </div>
+        <div class="cardcontent">
+            <div class="independent_culture_card">
+                <ul>
+                    <a href="/front/magazineList.jhtml"><li style="background-position: 0px 0px"></li></li></a>
+                    <a href="/lzxc/list_1.html"><li style="background-position: -419px 0px"></li></a>
+                    <a href="/xcjy/tpl/list_1.html"><li style="background-position: 0px -101px"></li></a>
+                    <a href="/xcjy/lzwh/list_1.html"><li style="background-position: -419px -101px"></li></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="friendLink card">友情链接:
+        <select>
+            <option value="#">中央纪委监察部网站</option>
+            <option value="http://www.ccdi.gov.cn">中纪委监察部网</option>
+            <option value="http://zgjjjc.ccdi.gov.cn">中国纪检监察杂志网</option>
+            <option value="http://irc.mos.gov.cn/mos/cms/html/204/index.html">中国监察学会网</option>
+            <option value="http://www.lianzheng.com.cn/">中国方正图书网</option>
+        </select>
+        <select>
+            <option value="#">省市纪检监察网站</option>
+            <option value="http://www.bjsupervision.gov.cn/">北京</option>
+            <option value="http://www.tjjw.gov.cn/">天津</option>
+            <option value="http://www.hebcdi.gov.cn/">河北</option>
+            <option value="http://www.sxdi.gov.cn/">山西</option>
+            <option value="http://www.nmgjjjc.gov.cn/">内蒙古</option>
+            <option value="http://www.lnsjjjc.gov.cn/">辽宁</option>
+            <option value="http://ccdijl.gov.cn/">吉林</option>
+            <option value="http://www.mingjian.com">黑龙江</option>
+            <option value="http://www.shjjjc.gov.cn">上海</option>
+            <option value="http://www.jssjw.gov.cn">江苏</option>
+            <option value="http://www.zjsjw.gov.cn/">浙江</option>
+            <option value="http://www.ahjjjc.gov.cn/">安徽</option>
+            <option value="http://www.fjcdi.gov.cn/">福建</option>
+            <option value="http://www.jxdi.gov.cn">江西</option>
+            <option value="http://www.sdjj.gov.cn/">山东</option>
+            <option value="http://www.hnsjct.gov.cn">河南</option>
+            <option value="http://www.hbjwjc.gov.cn/">湖北</option>
+            <option value="http://www.sxfj.gov.cn">湖南</option>
+            <option value="http://www.gdjct.gd.gov.cn">广东</option>
+            <option value="http://www.gxjjw.gov.cn">广西</option>
+            <option value="http://www.hnlzw.net">海南</option>
+            <option value="http://jjc.cq.gov.cn">重庆</option>
+            <option value="http://www.scjc.gov.cn">四川</option>
+            <option value="http://www.gzdis.gov.cn">贵州</option>
+            <option value="http://www.jjjc.yn.gov.cn">云南</option>
+            <option value="http://www.xzjjw.gov.cn">西藏</option>
+            <option value="http://www.qinfeng.gov.cn">陕西</option>
+            <option value="http://gsjw.gov.cn">甘肃</option>
+            <option value="http://www.nxjjjc.gov.cn">宁夏</option>
+            <option value="http://www.qhjc.gov.cn">青海</option>
+            <option value="http://www.xjjct.gov.cn">新疆</option>
+            <option value="http://btjw.xjbt.gov.cn">新疆生产建设兵团</option>
+        </select>
+        <select>
+            <option value="#">永川区内主要网站</option>
+            <option value="http://qw.cqyc.gov.cn/">区委门户网</option>
+            <option value="http://yc.cq.gov.cn/">区政府门户网</option>
+            <option value="http://ygyc.ygcq.com.cn/">阳光永川网</option>
+            <option value="http://www.ycw.gov.cn/">永川网</option>
+            <option value="http://www.cqyc.net/ ">茶竹永川</option>
+
+        </select>
+        <select>
+            <option value="#">全国各级热点论坛</option>
+            <option value="http://bbs1.people.com.cn/boardList.do?action=postList&boardId=71">监督论坛</option>
+            <option value="http://bbs1.people.com.cn/board/9.html">法制论坛</option>
+            <option value="http://bbs1.people.com.cn/board/13.html">中日论坛</option>
+            <option value="http://bbs1.people.com.cn/board/8.html">教育论坛</option>
+            <option value="http://bbs1.people.com.cn/board/44.html">文化论坛</option>
+            <option value="http://bbs.tianya.cn/ ">天涯论坛</option>
+            <option value="http://club.kdnet.net/ ">凯迪社区</option>
+            <option value="mailto:webmaster@4gee.com">交换您的链接！</option>
+
+        </select>
+    </div>
+    <script language="javascript">
+        $(".friendLink").on("change","select",function(e){
+            if($(this).val()!="#"){
+                window.open($(this).val())
+            }
+        });
+    </script>
+</div>
+<div class="clear"></div>
+</div>
+
+<div class="w100p foot">
+    <div class="foot_link"><a>关于我们</a>|<a>网站声明</a>|<a>返回首页</a></div>
+    <div class="center fs14 mt20">版权所有主办单位：中共重庆市永川区纪委 重庆市永川区监察局</div>
+    <div class="center fs14">地址：重庆市永川区人民大道191号 邮编：402160</div>
+    <div class="center fs14">电话：023-49812281 传真：023-49819504</div>
+    <div class="center footimg mt20"><img src="/images/new/ceshi.gif"><img src="/images/new/ygba.png"> <img src="/images/new/red.png"> </div>
+</div>
+</body>
+</html>

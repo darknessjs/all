@@ -1,0 +1,57 @@
+.R_switch{
+    color:white;
+    height: 20px;
+    width: 60px;
+    display: inline-block;
+    margin-top: 0px;
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid #666;
+    cursor: pointer;
+    vertical-align:middle;
+    transition: background 0.5s;
+    -moz-transition: background 0.5s;	/* Firefox 4 */
+    -webkit-transition: background 0.5 s;	/* Safari �� Chrome */
+    -o-transition: background 0.5s;	/* Opera */
+    line-height: 20px;
+}
+.R_switch .R_C{
+    height: 24px;
+    width: 24px;
+    border: 1px solid #666;
+    border-radius: 12px;
+    position: absolute;
+    background-color: white;
+    top: -3px;
+    left: -2px;
+}
+.R_switch .R_L,.R_switch .R_R{
+    position: absolute;
+    top:-1px;
+    font-size: 14px;
+}
+.R_switch span{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.R_read{
+
+    height: 20px;
+    width: 60px;
+    display: inline-block;
+    margin-top: 0px;
+    border-radius: 8px;
+    position: relative;
+    border: 0px solid #666;
+    cursor: pointer;
+    vertical-align:middle;
+    line-height: 20px;
+    color: white;
+    text-align: left;
+    font-size: 14px;
+}
+.R_read i{
+    font-size: 14px;
+}

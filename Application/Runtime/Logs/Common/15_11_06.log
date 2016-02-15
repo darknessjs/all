@@ -1,0 +1,54 @@
+[ 2015-11-06T11:39:37+08:00 ] 192.168.35.5 /newsc/web/Public/123/js.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:42:57+08:00 ] 192.168.35.5 /newsc/web/Public/js/jquery/js.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:42:57+08:00 ] 192.168.35.5 /newsc/web/Public/js/bootstrap/min/js.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:42:57+08:00 ] 192.168.35.5 /newsc/web/Public/js/plugins/morris/morris/min/js.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:42:57+08:00 ] 192.168.35.5 /newsc/web/Public/js/plugins/morris/raphael/min/js.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:42:57+08:00 ] 192.168.35.5 /newsc/web/Public/js/plugins/morris/morris-data/js.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:42:57+08:00 ] 192.168.35.5 /newsc/web/Public/js/plugins/morris/morris/min/js.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:42:57+08:00 ] 192.168.35.5 /newsc/web/Public/js/plugins/morris/morris-data/js.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:44:01+08:00 ] 192.168.35.5 /newsc/web/Public/js/bootstrap/min.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:45:27+08:00 ] 192.168.35.5 /newsc/web/Public/js/plugins/morris/raphael/min.js
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:48:32+08:00 ] 192.168.35.5 /newsc/web/Public/css/font-awesome/css/font-awesome.min.css
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:48:33+08:00 ] 192.168.35.5 /newsc/web/Public/css/font-awesome/css/font-awesome.min.css
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T11:49:16+08:00 ] 192.168.35.5 /newsc/web/Public/css/font-awesome/css/font-awesome.css
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T13:27:52+08:00 ] 192.168.35.5 /newsc/web/Public/css/font-awesome/css/font-awesome.css
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T13:28:02+08:00 ] 192.168.35.5 /newsc/web/Public/css/font-awesome/css/font-awesome.min.css
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T13:28:28+08:00 ] 192.168.35.5 /newsc/web/Public/css/font-awesome/css/font-awesome.css
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T13:28:35+08:00 ] 192.168.35.5 /newsc/web/Public/css/font-awesome/css/font-awesome.css
+ERR: 无法加载模块:Public
+
+[ 2015-11-06T14:15:43+08:00 ] 192.168.35.5 /newsc/web/index.php/index/search
+ERR: 无法加载模块:Index
+

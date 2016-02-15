@@ -1,0 +1,886 @@
+[ 2015-11-30T17:09:33+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/index/loginOperation
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000193s ]
+
+[ 2015-11-30T17:09:33+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000098s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000234s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0073s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000090s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000197s ]
+
+[ 2015-11-30T17:09:33+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000097s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000231s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 [ RunTime:0.0046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000115s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000226s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000079s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0010s ]
+SQL: select count(id) as count from spider_task where task_type=1 and task_status=1 [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000185s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0026s ]
+SQL: SELECT SUM(count_thread) as count_thread,SUM(count_success) as count_success,SUM(count_failed) as count_failed FROM `spider_task` WHERE `task_status` = 1 AND `task_type` = 2  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000075s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000178s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000207s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0009s ]
+SQL: SELECT SUM(count_thread) as count_thread,SUM(count_success) as count_success,SUM(count_failed) as count_failed FROM `spider_task` WHERE `task_status` = 1 AND `task_type` = 1  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000185s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Alarm/contentList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000079s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000218s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0037s ]
+SQL: SELECT spider_content_collect.*,spider_alert_rule.rule_alert,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_alert_rule ON spider_alert_rule.task_id = spider_content_collect.task_id LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  ORDER BY time desc LIMIT 0,10   [ RunTime:0.1486s ]
+SQL: SHOW COLUMNS FROM `spider_user_read` [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11262' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11261' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11260' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11259' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11258' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11257' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11256' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11255' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11254' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11253' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000404s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000572s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000072s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_task where task_type=2 and task_status=1 [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000114s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000222s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000229s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_content_collect where task_type=1 [ RunTime:0.0048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000083s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000185s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Alarm/alarmList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000210s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: SELECT spider_content_collect.*,spider_alert_rule.rule_alert,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_alert_rule ON spider_alert_rule.task_id = spider_content_collect.task_id LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  WHERE `flag` = 1 AND `alert` = 1 ORDER BY time desc LIMIT 0,20   [ RunTime:0.1503s ]
+SQL: SHOW COLUMNS FROM `spider_user_read` [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11262' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11261' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11260' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11259' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11258' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11257' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11256' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11255' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11254' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11253' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11252' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11251' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11250' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11249' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11248' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11247' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11246' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11245' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11244' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11243' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE `flag` = 1 AND `alert` = 1 LIMIT 1   [ RunTime:0.0050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000093s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000241s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskValueDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000208s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0009s ]
+SQL: SELECT `id` FROM `spider_task` WHERE `task_type` = 2  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE (  `task_id` = '37' ) OR (  `task_id` = '38' ) OR (  `task_id` = '39' ) LIMIT 1   [ RunTime:0.0059s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000080s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000208s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000237s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0155s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000101s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000205s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000097s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000241s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 [ RunTime:0.0045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000189s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 [ RunTime:0.0045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000184s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskValueDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000237s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0008s ]
+SQL: SELECT `id` FROM `spider_task` WHERE `task_type` = 1  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE (  `task_id` = '35' ) OR (  `task_id` = '36' ) OR (  `task_id` = '40' ) OR (  `task_id` = '34' ) LIMIT 1   [ RunTime:0.0049s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000186s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Task/taskList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000206s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `spider_task` WHERE `task_type` = 2  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `spider_schedule` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `spider_search_engine` [ RunTime:0.0005s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 10  [ RunTime:0.0002s ]
+SQL: SELECT `time` FROM `spider_schedule` WHERE `task_id` = 38  [ RunTime:0.0002s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 10  [ RunTime:0.0002s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 11  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_task` WHERE `task_type` = 2 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000185s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000109s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000246s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000182s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/index/loginOperation
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000090s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000205s ]
+
+[ 2015-11-30T17:09:48+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000077s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000213s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=1 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0133s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000112s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000219s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Alarm/alarmList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000233s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0009s ]
+SQL: SELECT spider_content_collect.*,spider_alert_rule.rule_alert,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_alert_rule ON spider_alert_rule.task_id = spider_content_collect.task_id LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  WHERE `flag` = 1 AND `alert` = 1 ORDER BY time desc LIMIT 0,20   [ RunTime:0.1612s ]
+SQL: SHOW COLUMNS FROM `spider_user_read` [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11262' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11261' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11260' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11259' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11258' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11257' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11256' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11255' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11254' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11253' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11252' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11251' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11250' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11249' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11248' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11247' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11246' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11245' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11244' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11243' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE `flag` = 1 AND `alert` = 1 LIMIT 1   [ RunTime:0.0050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000098s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000219s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000208s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0011s ]
+SQL: SELECT SUM(count_thread) as count_thread,SUM(count_success) as count_success,SUM(count_failed) as count_failed FROM `spider_task` WHERE `task_status` = 1 AND `task_type` = 1  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000083s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000193s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_task where task_type=2 and task_status=1 [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000181s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000072s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_task where task_type=1 and task_status=1 [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000081s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000190s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000079s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000251s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0008s ]
+SQL: SELECT SUM(count_thread) as count_thread,SUM(count_success) as count_success,SUM(count_failed) as count_failed FROM `spider_task` WHERE `task_status` = 1 AND `task_type` = 2  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000081s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000191s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Alarm/contentList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: SELECT spider_content_collect.*,spider_alert_rule.rule_alert,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_alert_rule ON spider_alert_rule.task_id = spider_content_collect.task_id LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  ORDER BY time desc LIMIT 0,10   [ RunTime:0.1514s ]
+SQL: SHOW COLUMNS FROM `spider_user_read` [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11262' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11261' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11260' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11259' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11258' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11257' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11256' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11255' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11254' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11253' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000093s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000207s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskValueDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0009s ]
+SQL: SELECT `id` FROM `spider_task` WHERE `task_type` = 1  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE (  `task_id` = '35' ) OR (  `task_id` = '36' ) OR (  `task_id` = '40' ) OR (  `task_id` = '34' ) LIMIT 1   [ RunTime:0.0053s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000211s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000271s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=1 [ RunTime:0.0046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000085s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000213s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskValueDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000326s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0009s ]
+SQL: SELECT `id` FROM `spider_task` WHERE `task_type` = 2  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE (  `task_id` = '37' ) OR (  `task_id` = '38' ) OR (  `task_id` = '39' ) LIMIT 1   [ RunTime:0.0051s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000191s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000079s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=1 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0130s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000077s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000179s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000087s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000224s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0030s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 [ RunTime:0.0046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000076s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000196s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000100s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000237s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 [ RunTime:0.0045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000205s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/index/loginOperation
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000204s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000089s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000204s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000077s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0153s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000096s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000202s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0072s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000091s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000197s ]
+
+[ 2015-11-30T17:09:55+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Task/taskList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `spider_task` WHERE `task_type` = 2  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `spider_schedule` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `spider_search_engine` [ RunTime:0.0005s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 10  [ RunTime:0.0002s ]
+SQL: SELECT `time` FROM `spider_schedule` WHERE `task_id` = 38  [ RunTime:0.0002s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 10  [ RunTime:0.0002s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 11  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_task` WHERE `task_type` = 2 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000090s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000199s ]
+
+[ 2015-11-30T17:10:20+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000206s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0010s ]
+SQL: SELECT SUM(count_thread) as count_thread,SUM(count_success) as count_success,SUM(count_failed) as count_failed FROM `spider_task` WHERE `task_status` = 1 AND `task_type` = 2  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000187s ]
+
+[ 2015-11-30T17:10:20+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Alarm/alarmList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004114s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004257s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0012s ]
+SQL: SELECT spider_content_collect.*,spider_alert_rule.rule_alert,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_alert_rule ON spider_alert_rule.task_id = spider_content_collect.task_id LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  WHERE `flag` = 1 AND `alert` = 1 ORDER BY time desc LIMIT 0,20   [ RunTime:0.1513s ]
+SQL: SHOW COLUMNS FROM `spider_user_read` [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11262' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11261' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11260' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11259' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11258' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11257' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11256' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11255' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11254' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11253' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11252' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11251' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11250' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11249' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11248' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11247' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11246' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11245' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11244' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11243' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE `flag` = 1 AND `alert` = 1 LIMIT 1   [ RunTime:0.0052s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000195s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000327s ]
+
+[ 2015-11-30T17:10:20+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0010s ]
+SQL: SELECT SUM(count_thread) as count_thread,SUM(count_success) as count_success,SUM(count_failed) as count_failed FROM `spider_task` WHERE `task_status` = 1 AND `task_type` = 1  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000084s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000228s ]
+
+[ 2015-11-30T17:10:20+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_task where task_type=2 and task_status=1 [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000212s ]
+
+[ 2015-11-30T17:10:20+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskValueDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0010s ]
+SQL: SELECT `id` FROM `spider_task` WHERE `task_type` = 1  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE (  `task_id` = '35' ) OR (  `task_id` = '36' ) OR (  `task_id` = '40' ) OR (  `task_id` = '34' ) LIMIT 1   [ RunTime:0.0052s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000186s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Alarm/contentList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000077s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000216s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: SELECT spider_content_collect.*,spider_alert_rule.rule_alert,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_alert_rule ON spider_alert_rule.task_id = spider_content_collect.task_id LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  ORDER BY time desc LIMIT 0,10   [ RunTime:0.1518s ]
+SQL: SHOW COLUMNS FROM `spider_user_read` [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11262' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11261' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11260' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11259' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11258' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11257' ) LIMIT 1   [ RunTime:0.0011s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11256' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11255' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11254' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11253' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000106s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000221s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskValueDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0008s ]
+SQL: SELECT `id` FROM `spider_task` WHERE `task_type` = 2  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE (  `task_id` = '37' ) OR (  `task_id` = '38' ) OR (  `task_id` = '39' ) LIMIT 1   [ RunTime:0.0053s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000111s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000220s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000237s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 [ RunTime:0.0048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000102s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000206s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000253s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_task where task_type=1 and task_status=1 [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000191s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_content_collect where task_type=1 [ RunTime:0.0048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000081s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000184s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000217s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0156s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000113s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000220s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Task/taskList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000211s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `spider_task` WHERE `task_type` = 2  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `spider_schedule` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `spider_search_engine` [ RunTime:0.0005s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 10  [ RunTime:0.0003s ]
+SQL: SELECT `time` FROM `spider_schedule` WHERE `task_id` = 38  [ RunTime:0.0002s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 10  [ RunTime:0.0002s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 11  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_task` WHERE `task_type` = 2 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000086s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000193s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000243s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 [ RunTime:0.0046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000165s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000280s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000244s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0073s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000184s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/index/loginOperation
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000097s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000237s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000197s ]
+
+[ 2015-11-30T17:10:21+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000211s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=1 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0132s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000107s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000244s ]
+
+[ 2015-11-30T17:10:39+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Alarm/alarmList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000098s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000247s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0010s ]
+SQL: SELECT spider_content_collect.*,spider_alert_rule.rule_alert,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_alert_rule ON spider_alert_rule.task_id = spider_content_collect.task_id LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  WHERE `flag` = 1 AND `alert` = 1 ORDER BY time desc LIMIT 0,20   [ RunTime:0.1483s ]
+SQL: SHOW COLUMNS FROM `spider_user_read` [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11262' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11261' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11260' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11259' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11258' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11257' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11256' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11255' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11254' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11253' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11252' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11251' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11250' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11249' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11248' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11247' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11246' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11245' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11244' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11243' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE `flag` = 1 AND `alert` = 1 LIMIT 1   [ RunTime:0.0053s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000166s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000311s ]
+
+[ 2015-11-30T17:10:39+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000212s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0009s ]
+SQL: SELECT SUM(count_thread) as count_thread,SUM(count_success) as count_success,SUM(count_failed) as count_failed FROM `spider_task` WHERE `task_status` = 1 AND `task_type` = 1  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000084s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000189s ]
+
+[ 2015-11-30T17:10:39+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000165s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000415s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_task where task_type=2 and task_status=1 [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000084s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000193s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Alarm/contentList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000212s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: SELECT spider_content_collect.*,spider_alert_rule.rule_alert,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_alert_rule ON spider_alert_rule.task_id = spider_content_collect.task_id LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  ORDER BY time desc LIMIT 0,10   [ RunTime:0.1497s ]
+SQL: SHOW COLUMNS FROM `spider_user_read` [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11262' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11261' ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11260' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11259' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11258' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11257' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11256' ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11255' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11254' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT `uid` FROM `spider_user_read` WHERE ( uid='1' AND ccid='11253' ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000137s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000306s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskValueDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000207s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0009s ]
+SQL: SELECT `id` FROM `spider_task` WHERE `task_type` = 2  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE (  `task_id` = '37' ) OR (  `task_id` = '38' ) OR (  `task_id` = '39' ) LIMIT 1   [ RunTime:0.0052s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000109s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000218s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000231s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: select count(id) as count from spider_content_collect where task_type=1 [ RunTime:0.0046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000087s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000191s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000248s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0038s ]
+SQL: select count(id) as count from spider_task where task_type=1 and task_status=1 [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000182s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000211s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0008s ]
+SQL: SELECT SUM(count_thread) as count_thread,SUM(count_success) as count_success,SUM(count_failed) as count_failed FROM `spider_task` WHERE `task_status` = 1 AND `task_type` = 2  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000189s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/taskValueDataCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000212s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0034s ]
+SQL: SELECT `id` FROM `spider_task` WHERE `task_type` = 1  [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE (  `task_id` = '35' ) OR (  `task_id` = '36' ) OR (  `task_id` = '40' ) OR (  `task_id` = '34' ) LIMIT 1   [ RunTime:0.0054s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000080s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000186s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000206s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0014s ]
+SQL: select count(id) as count from spider_content_collect where task_type=1 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0131s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000218s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000336s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000209s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000080s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000185s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/Task/taskList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000215s ]
+SQL: SHOW COLUMNS FROM `spider_task` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `spider_task` WHERE `task_type` = 2  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `spider_schedule` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `spider_search_engine` [ RunTime:0.0005s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 10  [ RunTime:0.0002s ]
+SQL: SELECT `time` FROM `spider_schedule` WHERE `task_id` = 38  [ RunTime:0.0002s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 10  [ RunTime:0.0002s ]
+SQL: SELECT `se_name` FROM `spider_search_engine` WHERE `id` = 11  [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_task` WHERE `task_type` = 2 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000183s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000213s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where task_type=2 [ RunTime:0.0044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000185s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/allAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000210s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 [ RunTime:0.0044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000102s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000206s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/index/loginOperation
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000208s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000074s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000190s ]
+
+[ 2015-11-30T17:10:40+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/count/nowAnswerCount
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000211s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0007s ]
+SQL: select count(id) as count from spider_content_collect where alert=1 AND to_days(FROM_UNIXTIME( time, '%Y-%m-%d' ))=to_days(now()) [ RunTime:0.0152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000095s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000201s ]
+
+[ 2015-11-30T17:12:05+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/collect/collectList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000086s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000241s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0009s ]
+SQL: SELECT spider_content_collect.*,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  WHERE spider_content_collect.id = 3209 AND spider_content_collect.task_type = 1  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE spider_content_collect.id = 3209 AND spider_content_collect.task_type = 1 LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000132s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000239s ]
+
+[ 2015-11-30T17:15:30+08:00 ] 192.168.35.5 /newsc/web/index.php/Home/collect/collectList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000090s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000282s ]
+SQL: SHOW COLUMNS FROM `spider_content_collect` [ RunTime:0.0011s ]
+SQL: SELECT spider_content_collect.*,spider_task.task_name FROM `spider_content_collect` LEFT JOIN spider_task ON spider_task.id = spider_content_collect.task_id  WHERE spider_content_collect.id = 3225 AND spider_content_collect.task_type = 1  [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `spider_content_collect` WHERE spider_content_collect.id = 3225 AND spider_content_collect.task_type = 1 LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000119s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000231s ]
+
+[ 2015-11-30T17:33:13+08:00 ] 192.168.36.33 /newsc/web/index.php/Home/collect/collectList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000120s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000236s ]
+
+[ 2015-11-30T17:33:14+08:00 ] 192.168.36.33 /newsc/web/index.php/Home/Task/taskList
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000134s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000118s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000234s ]
+
+[ 2015-11-30T17:33:14+08:00 ] 192.168.36.33 /newsc/web/index.php/Home/index/loginOperation
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000217s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000438s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000141s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000294s ]
+

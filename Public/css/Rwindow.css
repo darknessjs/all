@@ -1,0 +1,35 @@
+.R_windows{
+    position: fixed;
+    top:0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: auto;
+    z-index: 999;
+    background: white;
+    width: 500px;
+    height: 400px;
+    border-radius:10px;
+    display: none;
+    box-shadow: 2px 2px 2px #666;
+}
+.R_windows_head{
+    position: relative;
+    text-align: center;
+    background: #999;
+    color: white;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 10px 10px 0px 0px;
+}
+.R_window_close_button{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}

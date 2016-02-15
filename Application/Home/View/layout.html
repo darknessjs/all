@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{$title}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <import type='css' file="css/bootstrap#min" />
+    <import type='css' file="css/bootstrap-material-design#min" />
+
+    <!-- Custom Fonts -->
+    <import type='css' file="font-awesome/css/font-awesome" />
+    <import type='css' file="css/Rwindow" />
+    <import type='css' file="css/Rswitch" />
+    <import type='css' file="css/Rpage" />
+
+    <import type='css' file="css/ripples#min" />
+
+
+    <import type='css' file="css/Rcss" />
+
+
+    <import file="js/jquery" />
+
+    <!-- Bootstrap Core JavaScript -->
+    <import file="js/bootstrap#min" />
+
+    <!-- Morris Charts JavaScript -->
+    <import file="js/material" />
+    <import file="js/ripples#min" />
+    <import file="js/Rwindow" />
+    <import file="js/Rswitch" />
+    <import file="js/Rpage" />
+    <import file="js/Rtool" />
+    <import file="js/Rfall" />
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid ">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="javascript:void(0)">Brand<div class="ripple-container"></div></a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href=""  class="dropdown-toggle" data-toggle="dropdown">用户
+                        <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="collapse navbar-collapse  navbar-ex1-collapse">
+        <ul class=" nav navbar-nav side-nav card">
+            <!--class="active"-->
+            <li>
+                <a href=""><i class="fa fa-fw fa-1x fa-dashboard  maincolor"></i> 系统概况</a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-fw fa-1x fa-comment  maincolor"></i> 问答采集</a>
+                <ul class="collapse left_answer_list ulpointer" >
+                </ul>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-fw fa-1x fa-search  maincolor"></i> 搜索采集</a>
+                <ul class="collapse left_search_list ulpointer" >
+                </ul>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-fw fa-1x fa-bell  maincolor"></i> 预警提醒</a>
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#sys_setting"><i class="fa fa-fw fa-1x fa-cog  maincolor"></i> 系统设置 <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="sys_setting" class="collapse">
+                    <li>
+                        <a href="">用户管理</a>
+                    </li>
+                    <li>
+                        <a href="">问答采集设置</a>
+                    </li>
+                    <li>
+                        <a href="">搜索采集设置</a>
+                    </li>
+                    <li>
+                        <a href="">报警设置</a>
+                    </li>
+                    <li>
+                        <a href="">系统配置维护</a>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+
+
+
+<div class="content">
+{__CONTENT__}
+</div>
+</body>
+</html>
+<script language="JavaScript">
+    var __APP="__APP__";
+    var __SELF="__ACTION__";
+    var __ROOT="__ROOT__";
+    $.material.init();
+
+
+</script>

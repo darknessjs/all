@@ -1,0 +1,187 @@
+/*  样式复原  */
+
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
+    margin: 0px;
+    padding: 0px;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+input, select, textarea,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    font-family:Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei","Microsoft JhengHei",SimHei,sans-serif;
+
+}
+strong, h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+em { font-style: italic; }
+img, a img, :link img, :visited img { border: none; }
+ul { list-style: none;
+    list-style-type:none;
+}
+a:link {
+    color:inherit;
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+    color:inherit;
+}
+a:hover {
+    text-decoration: none;
+    color:inherit;
+}
+a:active {
+    text-decoration: none;
+    color:inherit;
+}
+:focus { outline: 0; }
+textarea { overflow-y: auto; }
+::-webkit-input-placeholder { color: inherit; }
+h1 { font-size: 31px; }
+h2 { font-size: 27px; }
+h3 { font-size: 23px; }
+/*  login   */
+.logindiv{
+    margin: auto;
+    position: fixed;
+    left: 45%;
+    right: 0;
+    top: -20%;
+    bottom: 0;
+    width: 420px;
+    height: 390px;
+    background-color: rgba(67,67,67,0.8);
+    border-radius: 10px;
+}
+.bk{padding: 0px; margin: 0px; left: 0px; top:0px; position: fixed; width: 100%; height: 100% ; z-index: -1;}
+.username{
+    margin-left: 45px;
+    /*margin-top:265px;*/
+    margin-top:10px;
+    padding-left: 55px;
+}
+.password{
+    padding-left: 55px;
+    margin-top: 20px;
+    margin-left: 45px;
+}
+.logininput{
+    width: 335px;
+    height: 50px;
+    font-size: 18px;
+    color: white;
+    border-radius: 8px;
+    border: 0px;
+    background-color: rgba(216,216,216,0.7);
+    box-shadow: 1px 6px 1px rgba(128,128,128,0.9) inset;
+
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;	/* Firefox 4 */
+    -webkit-transition: all 0.5s;	/* Safari 和 Chrome */
+    -o-transition: all 0.5s;	/* Opera */
+
+}
+.logininput:hover{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.loginButton{
+    word-spacing:50px;
+    margin-top: 25px;
+    margin-left: 45px;
+    width: 335px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 8px;
+    color: white;
+    background: #b9302f;
+    box-shadow: 0px 6px 0px #b9302f;
+    border: 0px;
+    cursor: pointer;
+}
+.pr{
+    position: relative;
+}
+.usericon{
+    position: absolute;
+    bottom:10px;
+    left: 65px;
+    width: 25px;
+    height: 25px;
+
+}
+.passwordicon{
+    background-position: 0px 25px;
+    position: absolute;
+    bottom:10px;
+    left: 65px;
+    width: 25px;
+    height: 25px;
+}
+
+a:link {
+    color:inherit;
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+    color:inherit;
+}
+a:hover {
+    text-decoration: none;
+    color:inherit;
+}
+a:active {
+    text-decoration: none;
+    color:inherit;
+}
+
+.loginlogo{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top:30px;
+}
+body{
+    background-image: url("../image/loginbg.png");
+}
+.usericon{
+    background-image: url(../image/loginicon.png);
+    position: absolute;
+    bottom:10px;
+    left: 65px;
+    width: 25px;
+    height: 25px;
+
+}
+.passwordicon{
+    background-image: url(../image/loginicon.png);
+    background-position: 0px 25px;
+    position: absolute;
+    bottom:10px;
+    left: 65px;
+    width: 25px;
+    height: 25px;
+}
+.logintitle{
+    text-shadow: 2px 2px 2px #666;
+    margin-top: 80px;
+    font-size: 32px;
+    color: #b9302f;
+    text-align: center;
+}
