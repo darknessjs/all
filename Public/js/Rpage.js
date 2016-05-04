@@ -11,18 +11,8 @@
 
 
     function(Rpage){
-        Rpage.pageObj=function(){
-            this.jqpagediv=null;
-            this.perpage=10;
-            this.pagenum=1;
-            this.allpagenum=0;
-            this.isshow=true;
-            this.pagechange=function(){};
-            this.defaultpagechange=function(){
-                $(".R_pagenum").html("");
-            };
+        Rpage.pageObj=function(pagediv){
             this.setpagediv=function(pagediv){
-
                 this.jqpagediv=pagediv;
                 this.jqpagediv.html('' +
                     '<div class="prepage"><span></span>上一页</div>' +
@@ -51,7 +41,17 @@
                     pageobjthis.defaultpagechange();
                     pageobjthis.pagechange();
                 });
+                return pagediv;
 
+            };
+            this.jqpagediv=(pagediv?this.setpagediv(pagediv):null);
+            this.perpage=10;
+            this.pagenum=1;
+            this.alldatacount=0;
+            this.isshow=true;
+            this.pagechange=function(){};
+            this.defaultpagechange=function(){
+                $(".R_pagenum").html("");
             };
             this.addclass=function(cssname){
                 this.jqpagediv.addClass(cssname);
@@ -62,16 +62,16 @@
             this.setisshowpagediv=function(isshow){
                 this.isshow=isshow;
             };
-            this.setallpagenum=function(num){
+            this.setalldatacount=function(num){
                 if(this.isshow){
                     this.jqpagediv.show();
                 }else{
                     this.jqpagediv.hide();
                 }
-                this.allpagenum=num;
+                this.alldatacount=num;
                 $(".R_pagenum").html("");
                 var pages=num/this.perpage;
-                if(this.allpagenum%10==0){
+                if(this.alldatacount%10==0){
                     pages=pages-(0.1);
                 }
                 if(pages<=1){
