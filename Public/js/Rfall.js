@@ -34,5 +34,27 @@
                 }
             });
         }
+        Rfall.Rshowobj=function(){
+            var thisobj=this;
+            this.funarr=[];
+            this.nownum=-1;
+            this.addnewshowfunc=function(func,position,jquerydiv){
+                thisobj.funarr.push({"func":func,"position":position,"jquerydiv":jquerydiv});
+            }
+            $(document).scroll(function(e){
+                var funlen=thisobj.funarr.length;
+                for(var i=(funlen-1);i>=0;i--){
+                    if((thisobj.funarr[i].jquerydiv.offset().top-$(document).scrollTop())<thisobj.funarr[i].position){
+                        if(thisobj.nownum!=i){
+                            thisobj.funarr[i].func();
+                            thisobj.nownum=i;
+                        }
+                        break;
+                    }
+                }
+            });
+
+
+        }
     }(Rfall);
 
