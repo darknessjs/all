@@ -1,0 +1,40 @@
+.r_window_tag{
+	margin-left: 30px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	display:inline-block;
+	height: 35px;
+	overflow: hidden;
+}
+.r_window_tag>li{
+	float: left;
+	min-width:120px;
+	height: 35px;
+}
+.r_window_tag_close{
+	position: absolute;
+	right: 10px;
+	height: 20px;
+	width: 20px;
+	background: url("../images/close.png");
+	background-size: cover;
+	display: inline-block;
+	padding: 0px;
+	vertical-align: middle;
+}
+.r_tag_content{
+	top:-5px;
+	overflow: hidden;
+	position: relative;
+	height: 600px;
+}
+.r_tag_content>div{
+	position: absolute;
+	top:0px;
+}
+.r_window_tag .btn-default{
+	background: white !important;
+}
+.r_tag_btn {
+	padding-right: 40px;
+}
