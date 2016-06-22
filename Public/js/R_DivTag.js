@@ -46,6 +46,7 @@
 			return this;
 		};
 
+		//将一个div变成带有tag的形式div
 		R_DivTag.createDiv=function(jquerydiv,marginleft,margintop){
 
 			this.tagarr=[];
